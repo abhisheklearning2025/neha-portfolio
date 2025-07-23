@@ -1,0 +1,29 @@
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next node_modules",
+    "reinstall": "npm run clean && npm install",
+    "analyze": "ANALYZE=true next build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "update-deps": "npm update && npm audit fix",
+    "check-deps": "npm outdated",
+    "build:static": "next build && next export -o dist"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,mdx,css,scss}": [
+      "prettier --write"
+    ]
+  }
+}
