@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, Users, Sparkles } from 'lucide-react'
 import Card from './ui/Card'
 import Modal from './ui/Modal'
-import Button from './ui/Button'
 import { projects } from '@/lib/data'
 
 const categories = [

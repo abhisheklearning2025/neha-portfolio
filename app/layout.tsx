@@ -6,6 +6,7 @@ import { personalInfo } from '@/lib/data'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://nehaupadhyaya.com'),
   title: `${personalInfo.name} - ${personalInfo.title}`,
   description: `Portfolio of ${personalInfo.name}, a seasoned digital product leader with 19+ years of experience building products for 600M+ users.`,
   keywords: 'Digital Product Management, VP Engineering, Product Strategy, Digital Transformation, Mobile Apps, AI Implementation',
