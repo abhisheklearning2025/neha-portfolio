@@ -6,6 +6,7 @@ import { Download, Mail, Linkedin, ChevronDown } from 'lucide-react'
 import Button from './ui/Button'
 import { personalInfo } from '@/lib/data'
 import { scrollToSection } from '@/lib/utils'
+import Image from 'next/image';
 
 const Hero: React.FC = () => {
   const containerVariants = {
@@ -56,7 +57,22 @@ const Hero: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="w-full h-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-4xl font-bold">
+                      {/* Try to load the image, fallback to initials if not found */}
+            <Image
+              src="/images/profile.jpg"
+              alt={personalInfo.name}
+              width={160}
+              height={160}
+              className="object-cover"
+              onError={(e) => {
+                // Hide image and show fallback
+                e.currentTarget.style.display = 'none';
+                const fallback = e.currentTarget.nextElementSibling;
+                if (fallback) fallback.classList.remove('hidden');
+              }}
+            />
+            {/* Fallback to initials */}
+            <div className="hidden w-full h-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-4xl font-bold absolute inset-0">
               {personalInfo.name.split(' ').map(n => n[0]).join('')}
             </div>
           </motion.div>
